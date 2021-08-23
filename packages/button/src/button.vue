@@ -1,5 +1,5 @@
 <template>
-    <button>
+    <button class="el-button">
         abc{{size}}
     </button>
 </template>
