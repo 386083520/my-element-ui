@@ -1,3 +1,4 @@
-.el-button {
-  background: #f00;
+@import "mixins/mixins";
+@include b(button) {
+  background: bisque;
 }
