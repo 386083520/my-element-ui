@@ -4,15 +4,10 @@
     </button>
 </template>
 <script>
-    module.exports = {
+    export default {
         name: 'ElButton',
         props: {
             size: String
         }
     };
 </script>
-<style>
-    .el-button {
-        background: aquamarine;
-    }
-</style>

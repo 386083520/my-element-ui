@@ -9,7 +9,10 @@
 <body>
     <div id="app">
         {{ message }}
-        <el-card body-style="padding: 20px">aaa</el-card>
+        <el-card body-style="padding: 20px" shadow="hover" header="abc">
+            <div slot="header">abcde</div>
+            <div>bbb</div>
+        </el-card>
     </div>
 </body>
 <script>
