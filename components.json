@@ -1,0 +1,6 @@
+{
+  "pagination": "./packages/pagination/index.js",
+  "dialog": "./packages/dialog/index.js",
+  "card": "./packages/card/index.js",
+  "button": "./packages/button/index.js"
+}
