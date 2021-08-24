@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         {{ message }}
-        <el-button></el-button>
+        <el-card body-style="padding: 20px">aaa</el-card>
     </div>
 </body>
 <script>
@@ -19,7 +19,7 @@
             message: 'Hello Vue!'
         },
         components: {
-            'ElButton': httpVueLoader('../packages/button/src/button.vue')
+            'ElCard': httpVueLoader('../packages/card/src/main.vue')
         }
     })
 </script>
