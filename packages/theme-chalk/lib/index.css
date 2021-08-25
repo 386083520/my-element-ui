@@ -1,3 +1,6 @@
+.el-button {
+  background: bisque; }
+
 .el-card {
   border-radius: 4px;
   border: 1px solid #EBEEF5;
@@ -15,6 +18,3 @@
     box-sizing: border-box; }
   .el-card__body {
     padding: 20px; }
-
-.el-button {
-  background: bisque; }
