@@ -1,10 +1,12 @@
 <template>
   <div class="el-alert"
-       :class="[typeClass, 'is-' + effect]">
+       :class="[typeClass, 'is-' + effect]"
+       v-show="visible">
     <div class="el-alert__content">
       <span>
         <slot name="title">{{ title }}</slot>
       </span>
+      <i class="el-alert__closebtn" :class="{ 'is-customed': closeText !== '', 'el-icon-close': closeText === '' }" @click="close()">{{closeText}}</i>
     </div>
   </div>
 </template>
@@ -24,13 +26,28 @@ module.exports = {
     effect: {
       type: String,
       default: 'light'
+    },
+    closeText: {
+      type: String,
+      default: ''
     }
   },
   computed: {
     typeClass() {
       return `el-alert--${ this.type }`;
     }
-  }
+  },
+  data() {
+    return {
+      visible: true
+    };
+  },
+  methods: {
+    close() {
+      this.visible = false;
+      this.$emit('close');
+    }
+  },
 };
 </script>
 
@@ -41,6 +58,7 @@ module.exports = {
     margin: 0;
     box-sizing: border-box;
     border-radius: 4px;
+    position: relative;
     background-color: #FFFFFF; }
   .el-alert--success.is-light {
     background-color: #f0f9eb;
@@ -66,4 +84,15 @@ module.exports = {
   .el-alert--error.is-dark {
     background-color: #F56C6C;
     color: #FFFFFF; }
+  .el-alert__closebtn {
+    font-size: 12px;
+    opacity: 1;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer; }
+  .el-alert__closebtn.is-customed {
+    font-style: normal;
+    font-size: 13px;
+    top: 9px; }
 </style>

@@ -29,3 +29,14 @@
   .el-alert--error.is-dark {
     background-color: #F56C6C;
     color: #FFFFFF; }
+  .el-alert__closebtn {
+    font-size: 12px;
+    opacity: 1;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer; }
+    .el-alert__closebtn.is-customed {
+      font-style: normal;
+      font-size: 13px;
+      top: 9px; }

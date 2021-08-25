@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         {{ message }}
-        <el-alert title="abcd" type="error" effect="dark">
+        <el-alert title="abcd" type="error" effect="dark" close-text="关闭" @close="hello">
         </el-alert>
     </div>
 </body>
@@ -21,6 +21,11 @@
         },
         components: {
             'ElAlert': httpVueLoader('../packages/alert/src/main.vue')
+        },
+        methods: {
+            hello() {
+                console.log('hello')
+            }
         }
     })
 </script>
