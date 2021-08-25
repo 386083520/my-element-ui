@@ -9,10 +9,8 @@
 <body>
     <div id="app">
         {{ message }}
-        <el-card body-style="padding: 20px" shadow="hover" header="abc">
-            <div slot="header">abcde</div>
-            <div>bbb</div>
-        </el-card>
+        <el-alert title="abcd" type="error" effect="dark">
+        </el-alert>
     </div>
 </body>
 <script>
@@ -22,7 +20,7 @@
             message: 'Hello Vue!'
         },
         components: {
-            'ElCard': httpVueLoader('../packages/card/src/main.vue')
+            'ElAlert': httpVueLoader('../packages/alert/src/main.vue')
         }
     })
 </script>

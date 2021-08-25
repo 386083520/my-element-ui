@@ -2,4 +2,53 @@
 @import "common/var";
 
 @include b(alert) {
+  width: 100%;
+  padding: $--alert-padding;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: $--alert-border-radius;
+  background-color: $--color-white;
+  @include m(success) { //el-alert--success
+    &.is-light {
+      background-color: $--alert-success-color;
+      color: $--color-success;
+    }
+    &.is-dark {
+      background-color: $--color-success;
+      color: $--color-white;
+    }
+  }
+  @include m(info) { //el-alert--success
+    &.is-light {
+      background-color: $--alert-info-color;
+      color: $--color-info;
+    }
+    &.is-dark {
+      background-color: $--color-info;
+      color: $--color-white;
+    }
+  }
+  @include m(warning) {
+    &.is-light {
+      background-color: $--alert-warning-color;
+      color: $--color-warning;
+    }
+
+    &.is-dark {
+      background-color: $--color-warning;
+      color: $--color-white;
+    }
+  }
+
+  @include m(error) {
+    &.is-light {
+      background-color: $--alert-danger-color;
+      color: $--color-danger;
+    }
+
+    &.is-dark {
+      background-color: $--color-danger;
+      color: $--color-white;
+    }
+  }
 }
