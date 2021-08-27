@@ -31,6 +31,13 @@ $--alert-info-color: $--color-info-lighter !default;
 $--alert-warning-color: $--color-warning-lighter !default;
 $--alert-danger-color: $--color-danger-lighter !default;
 $--alert-close-font-size: 12px !default;
+$--alert-title-font-size: 13px !default;
+$--alert-description-font-size: 12px !default;
+
+/// height||Other|4
+$--alert-icon-size: 16px !default;
+/// height||Other|4
+$--alert-icon-large-size: 28px !default;
 
 $--font-path: 'fonts' !default;
 $--font-display: 'auto' !default;

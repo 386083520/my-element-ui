@@ -22,3 +22,18 @@
 
 .el-icon-coffee:before {
   content: "\e6aa"; }
+
+.el-icon-close:before {
+  content: "\e6db"; }
+
+.el-icon-error:before {
+  content: "\e79d"; }
+
+.el-icon-success:before {
+  content: "\e79c"; }
+
+.el-icon-warning:before {
+  content: "\e7a3"; }
+
+.el-icon-info:before {
+  content: "\e7a1"; }
