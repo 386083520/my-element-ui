@@ -1,3 +1,28 @@
+@font-face {
+  font-family: 'element-icons';
+  src: url("fonts/element-icons.woff") format("woff"), url("fonts/element-icons.ttf") format("truetype");
+  /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  font-weight: normal;
+  font-display: "auto";
+  font-style: normal; }
+
+[class^="el-icon-"], [class*=" el-icon-"] {
+  font-family: 'element-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.el-icon-coffee:before {
+  content: "\e6aa"; }
+
 .el-button {
   background: bisque; }
 
@@ -25,6 +50,7 @@
   margin: 0;
   box-sizing: border-box;
   border-radius: 4px;
+  position: relative;
   background-color: #FFFFFF; }
   .el-alert--success.is-light {
     background-color: #f0f9eb;

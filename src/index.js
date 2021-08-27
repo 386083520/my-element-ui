@@ -3,11 +3,13 @@
 import Button from '../packages/button/index.js';
 import Card from '../packages/card/index.js';
 import Alert from '../packages/alert/index.js';
+import Icon from '../packages/icon/index.js';
 
 const components = [
   Button,
   Card,
-  Alert
+  Alert,
+  Icon
 ];
 
 const install = function(Vue, opts = {}) {
