@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:file": "node build/bin/build-entry.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js  && cp-cli packages/theme-chalk/lib lib/theme-chalk",
-    "build": "webpack --config build/webpack.common.js"
+    "build": "webpack --config build/webpack.common.js && webpack --config build/webpack.component.js"
   },
   "author": "",
   "license": "ISC",
