@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <button v-on:click="show = !show">
+        Toggle
+    </button>
+    <transition name="fade">
+        <p v-show="show" class="container">hello</p>
+    </transition>
+</div>
+</body>
+<script>
+    new Vue({
+    el: '#demo',
+    data: {
+        show: true
+    }
+    })
+</script>
+<style>
+    /*.fade-leave-active {
+        transition: opacity 5s;
+    }
+    .fade-leave-to !* .fade-leave-active below version 2.1.8 *! {
+        opacity: 0.5;
+    }*/
+    /*.fade-enter {
+        opacity: 0;
+    }*/
+    /*.fade-enter-active, .fade-leave-active {
+        transition: opacity 5s;
+        opacity: 0.5;
+    }*/
+    /*.fade-enter-to !* .fade-leave-active below version 2.1.8 *! {
+        opacity: 0.5;
+    }*/
+    .container {
+        transition: opacity 5s;
+    }
+    .fade-enter, .fade-leave-active {
+        opacity: 0;
+    }
+</style>
+</html>

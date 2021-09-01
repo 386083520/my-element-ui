@@ -4,12 +4,14 @@ import Button from '../packages/button/index.js';
 import Card from '../packages/card/index.js';
 import Alert from '../packages/alert/index.js';
 import Icon from '../packages/icon/index.js';
+import Badge from '../packages/badge/index.js';
 
 const components = [
   Button,
   Card,
   Alert,
-  Icon
+  Icon,
+  Badge
 ];
 
 const install = function(Vue, opts = {}) {
@@ -28,8 +30,9 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   version: '1.0.0',
   install,
-  Button,
+    Button,
   Card,
   Alert,
-  Icon
+  Icon,
+  Badge
 };

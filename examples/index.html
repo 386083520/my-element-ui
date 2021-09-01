@@ -9,17 +9,9 @@
 </head>
 <body>
     <div id="app">
-        {{ message }}
-        <el-alert
-                title="abcd"
-                effect="dark"
-                type="error"
-                @close="hello"
-                :closable="false"
-                :center="isCenter"
-                :show-icon="showIcon">
-            this is a des
-        </el-alert>
+        <el-badge :value="value" :max="max" :hidden="isHidden">
+            this is content
+        </el-badge>
     </div>
 </body>
 <script>
@@ -28,10 +20,12 @@
         data: {
             message: 'Hello Vue!',
             isCenter: false,
-            showIcon: true
+            isHidden: true,
+            value: 66,
+            max: 55
         },
         components: {
-            'ElAlert': httpVueLoader('../packages/alert/src/main.vue')
+            'ElBadge': httpVueLoader('../packages/badge/src/main.vue')
         },
         methods: {
             hello() {
