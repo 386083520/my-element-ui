@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        <el-badge :value="value" :max="max" :hidden="isHidden">
+        <el-badge :value="value" :max="max" :hidden="isHidden" type="warning">
             this is content
         </el-badge>
     </div>
@@ -20,8 +20,8 @@
         data: {
             message: 'Hello Vue!',
             isCenter: false,
-            isHidden: true,
-            value: 66,
+            isHidden: false,
+            value: 6,
             max: 55
         },
         components: {
