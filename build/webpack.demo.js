@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpackConfig = {
     mode: process.env.NODE_ENV,
     entry: './examples/entry.js',
@@ -15,8 +16,22 @@ const webpackConfig = {
         publicPath: '/',
         hot: true
     },
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    compilerOptions: {
+                        preserveWhitespace: false
+                    }
+                }
+            }
+        ]
+    },
     plugins: [
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin(),
+        new VueLoaderPlugin()
     ]
 }
 
