@@ -1,7 +1,7 @@
 <template>
-    <div id="app">
+    <h1 id="app">
         666
-    </div>
+    </h1>
 </template>
 
 <script>
