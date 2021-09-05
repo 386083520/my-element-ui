@@ -1,4 +1,4 @@
-let route = []
+import navConfig from './nav.config';
 
 const LOAD_MAP = {
     'zh-CN': name => {
@@ -11,6 +11,21 @@ const LOAD_MAP = {
 const load = function(lang, path) {
     return LOAD_MAP[lang](path);
 };
+const registerRoute = (navConfig) => {
+    let route = [];
+    Object.keys(navConfig).forEach((lang, index) => {
+        let navs = navConfig[lang];
+        route.push({
+            path: `/${ lang }/component`,
+            // redirect: `/${ lang }/component/installation`,
+            component: load(lang, 'component'),
+            children: []
+        });
+    })
+    return route;
+}
+
+let route = registerRoute(navConfig)
 
 const generateMiscRoutes = function(lang) {
     let indexRoute = {
