@@ -41,8 +41,22 @@
       "name": "组件",
       "groups": [
         {
-          "groupName": "Basic",
-          "list": []
+          "groupName": "Data",
+          "list": [
+            {
+            "path": "/badge",
+            "title": "Badge"
+            }
+          ]
+        },
+        {
+          "groupName": "Notice",
+          "list": [
+            {
+              "path": "/alert",
+              "title": "Alert"
+            }
+          ]
         }
       ]
     }

@@ -8,8 +8,19 @@ const LOAD_MAP = {
     }
 }
 
+const LOAD_DOCS_MAP = {
+    'zh-CN': path => {
+        return r => require.ensure([], () =>
+                r(require(`./docs/zh-CN${path}.md`)),
+            'zh-CN');
+    }
+}
+
 const load = function(lang, path) {
     return LOAD_MAP[lang](path);
+};
+const loadDocs = function(lang, path) {
+    return LOAD_DOCS_MAP[lang](path);
 };
 const registerRoute = (navConfig) => {
     let route = [];
@@ -21,7 +32,25 @@ const registerRoute = (navConfig) => {
             component: load(lang, 'component'),
             children: []
         });
+        navs.forEach(nav => {
+            if (nav.groups) {
+                nav.groups.forEach(group => {
+                    group.list.forEach(nav => {
+                        addRoute(nav, lang, index);
+                    })
+                })
+            }
+        })
     })
+    function addRoute(page, lang, index) {
+        const component = loadDocs(lang, page.path);
+        let child = {
+            path: page.path.slice(1),
+            name: 'component-' + lang + (page.title || page.name),
+            component: component.default || component
+        }
+        route[index].children.push(child);
+    }
     return route;
 }
 
@@ -36,4 +65,5 @@ const generateMiscRoutes = function(lang) {
     return [indexRoute];
 }
 route = route.concat(generateMiscRoutes('zh-CN'));
+console.log('gsdroute', route)
 export default route;
