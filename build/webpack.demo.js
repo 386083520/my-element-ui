@@ -39,6 +39,22 @@ const webpackConfig = {
                 ]
             },
             {
+                test: /\.md$/,
+                use: [
+                    {
+                        loader: 'vue-loader',
+                        options: {
+                            compilerOptions: {
+                                preserveWhitespace: false
+                            }
+                        }
+                    },
+                    {
+                        loader: path.resolve(__dirname, './md-loader/index.js')
+                    }
+                ]
+            },
+            {
                 test: /\.(svg|otf|ttf|woff2?|eot|gif|png|jpe?g)(\?\S*)?$/,
                 loader: 'url-loader',
                 // todo: 这种写法有待调整
