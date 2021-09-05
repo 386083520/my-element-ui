@@ -10,6 +10,9 @@ const webpackConfig = {
         filename: '[name].[hash:7].js',
         chunkFilename: '[name].js'
     },
+    resolve: {
+        extensions: ['.js', '.vue', '.json']
+    },
     devServer: {
         host: '0.0.0.0',
         port: 8085,
