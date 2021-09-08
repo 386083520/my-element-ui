@@ -10,6 +10,7 @@ import routes from './route.config'
 import 'highlight.js/styles/atelier-seaside-light.css'
 
 import '../packages/theme-chalk/src/index.scss';
+import './demo-styles/index.scss';
 import './assets/styles/common.css';
 
 Vue.use(Element);

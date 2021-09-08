@@ -1,7 +1,7 @@
 <template>
     <div
        class="demo-block"
-       :class="[{ 'hover': hovering }]"
+       :class="[blockClass, { 'hover': hovering }]"
        @mouseenter="hovering = true"
        @mouseleave="hovering = false"
     >
@@ -16,15 +16,64 @@
                 <slot name="highlight"></slot>
             </div>
         </div>
+        <div
+            class="demo-block-control"
+            ref="control"
+            :class="{ 'is-fixed': fixedControl }"
+            @click="isExpanded = !isExpanded">
+            <transition name="arrow-slide">
+                <i :class="[iconClass, { 'hovering': hovering }]"></i>
+            </transition>
+            <transition name="text-slide">
+                <span v-show="hovering">{{ controlText }}</span>
+            </transition>
+        </div>
     </div>
 </template>
 
 <script>
+    import compoLang from '../i18n/component.json';
     export default {
         name: "",
         data() {
             return {
-                hovering: false
+                hovering: false,
+                isExpanded: false,
+                fixedControl: false
+            }
+        },
+        computed: {
+            lang() {
+                return this.$route.path.split('/')[1];
+            },
+            langConfig() {
+                return compoLang.filter(config => config.lang === this.lang)[0]['demo-block'];
+            },
+            controlText() {
+                return this.isExpanded ? this.langConfig['hide-text'] : this.langConfig['show-text'];
+            },
+            iconClass() {
+                return this.isExpanded ? 'el-icon-caret-top' : 'el-icon-caret-bottom';
+            },
+            codeArea() {
+                console.log('gsdel', this.$el)
+                return this.$el.getElementsByClassName('meta')[0];
+            },
+            codeAreaHeight() {
+                if (this.$el.getElementsByClassName('description').length > 0) {
+                    return this.$el.getElementsByClassName('description')[0].clientHeight +
+                        this.$el.getElementsByClassName('highlight')[0].clientHeight + 20;
+                }
+                return this.$el.getElementsByClassName('highlight')[0].clientHeight;
+            },
+            blockClass() {
+                console.log('gsd', this.$router.currentRoute.path.split('/'))
+                return `demo-${ this.lang } demo-${ this.$router.currentRoute.path.split('/').pop() }`;
+            }
+        },
+        watch: {
+            isExpanded(val) {
+                this.codeArea.style.height = val ? `${ this.codeAreaHeight + 1 }px` : '0';
             }
         }
     }
@@ -90,6 +139,64 @@
                 &::before {
                     content: none;
                 }
+            }
+        }
+        .demo-block-control {
+            border-top: solid 1px #eaeefb;
+            height: 44px;
+            box-sizing: border-box;
+            background-color: #fff;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            text-align: center;
+            margin-top: -1px;
+            color: #d3dce6;
+            cursor: pointer;
+            position: relative;
+
+            &.is-fixed {
+                position: fixed;
+                bottom: 0;
+                width: 868px;
+            }
+
+            i {
+                font-size: 16px;
+                line-height: 44px;
+                transition: .3s;
+                &.hovering {
+                    transform: translateX(-40px);
+                }
+            }
+
+            > span {
+                position: absolute;
+                transform: translateX(-30px);
+                font-size: 14px;
+                line-height: 44px;
+                transition: .3s;
+                display: inline-block;
+            }
+
+            &:hover {
+                color: #409EFF;
+                background-color: #f9fafc;
+            }
+
+            & .text-slide-enter,
+            & .text-slide-leave-active {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+
+            .control-button {
+                line-height: 26px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                font-size: 14px;
+                padding-left: 5px;
+                padding-right: 25px;
             }
         }
     }
